@@ -21,10 +21,12 @@ class User extends Model {
 if(user.password){
 user.password_hash = await bcrypt.hash(user.password, 10);
 }
-
   });
+
   return this;
+  
     }
+
 async checkPassword(password){
  return bcrypt.compare(password, this.password_hash);    
 }

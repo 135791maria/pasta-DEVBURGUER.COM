@@ -10,10 +10,12 @@ allowNull:false,
 primaryKey:true,
 autoIncrement:true,
          },
+
          name:{
           type: Sequelize.STRING,
           allowNull:false,
          },
+
          price:{
 type:Sequelize.INTEGER,
 allowNull:false,
@@ -26,10 +28,12 @@ allowNull: false,
 type:Sequelize.STRING,
 allowNull:false,
          },
+         
 created_at:{
 type: Sequelize.DATE,
 allowNull:false,
 },
+
 updated_at:{
 type: Sequelize.DATE,
 allowNull:false,
