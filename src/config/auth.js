@@ -1,9 +1,5 @@
 
-
-export default{
-secret: "1a136e8b8c8f87c1dea58aa279b1dee6",
-expiresIn:"5d",
+export default {
+secret:"a7ffba05ad6baa669f62e96e890bb3dd",
+expiresIn:"5d",  
 }
-
-
-

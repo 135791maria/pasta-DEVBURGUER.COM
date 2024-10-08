@@ -1,31 +1,26 @@
 import { Router } from "express";
 import multer from "multer";
+import authMiddleware from "./middlewares/auth";
+
 import multerConfig from "./config/multer";
-
-
 import UserController from "./app/controllers/UserController";
 import SessionController from "./app/controllers/SessionController";
 import ProductController from "./app/controllers/ProductController";
-import authMiddleware from "./app/middlewares/auth";
-import CategoryController from "./app/controllers/CategoryController";
-import OrderController from "./app/controllers/OrderController";
+import CategoryController from "./app/controllers/CategoryControllers";
 
 const routes = new Router();
+const Upload = multer(multerConfig);
 
-const upload = multer(multerConfig);
 
-
-routes.post("/users", UserController.store);
+routes.post('/users',  UserController.store) ;
 routes.post("/session", SessionController.store);
 
-routes.use(authMiddleware)
-
-routes.post("/products", upload.single("file"), ProductController.store);
+routes.use(authMiddleware);
+routes.post("/products", Upload.single("file"), ProductController.store)
 routes.get("/products",  ProductController.index);
 
-routes.post("/categories", CategoryController.store);
-routes.get("/categories", CategoryController.index);
+routes.post("/Categories", CategoryController.store)
+routes.get("/Categories",  CategoryController.index);
 
-routes.post("/orders", OrderController.store);
 
   export default routes;
